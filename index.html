@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converto || Online Unit Converter - Currency, Distance, and More</title>
+    <link rel="shortcut icon" href="./convert.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-4">
+        <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-6 mb-6 shadow-lg">
+            <div class="container mx-auto flex items-center justify-between px-6">
+                <!-- Logo or Brand Name -->
+                <img src="./convert.png" alt="logo">
+                <h1 class="text-1xl font-bold tracking-wide md:text-2xl">Convert Any Kind of Value</h1>
+            </div>
+        </header>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Unit Converter -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-2">Unit Converter</h2>
+                <input type="number" id="unitInput" class="w-full p-2 border rounded" placeholder="Enter value">
+                <div class="flex gap-2 mt-2">
+                    <select id="unitFrom" class="w-1/2 p-2 border rounded"></select>
+                    <select id="unitTo" class="w-1/2 p-2 border rounded"></select>
+                </div>
+                <button onclick="convertUnit()" class="mt-3 w-full bg-blue-500 text-white p-2 rounded">Convert</button>
+                <p class="mt-2">Result: <span id="unitResult"></span></p>
+            </div>
+
+            <!-- Currency Converter -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-2">Currency Converter</h2>
+                <input type="number" id="currencyInput" class="w-full p-2 border rounded" placeholder="Enter amount">
+                <div class="flex gap-2 mt-2">
+                    <select id="currencyFrom" class="w-1/2 p-2 border rounded"></select>
+                    <select id="currencyTo" class="w-1/2 p-2 border rounded"></select>
+                </div>
+                <button onclick="convertCurrency()"
+                    class="mt-3 w-full bg-green-500 text-white p-2 rounded">Convert</button>
+                <p class="mt-2">Result: <span id="currencyResult"></span></p>
+            </div>
+
+            <!-- Additional Converters -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-2">Energy Converter</h2>
+                <input type="number" id="energyInput" class="w-full p-2 border rounded" placeholder="Enter value">
+                <div class="flex gap-2 mt-2">
+                    <select id="energyFrom" class="w-1/2 p-2 border rounded"></select>
+                    <select id="energyTo" class="w-1/2 p-2 border rounded"></select>
+                </div>
+                <button onclick="convertEnergy()"
+                    class="mt-3 w-full bg-purple-500 text-white p-2 rounded">Convert</button>
+                <p class="mt-2">Result: <span id="energyResult"></span></p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-2">Speed Converter</h2>
+                <input type="number" id="speedInput" class="w-full p-2 border rounded" placeholder="Enter value">
+                <div class="flex gap-2 mt-2">
+                    <select id="speedFrom" class="w-1/2 p-2 border rounded"></select>
+                    <select id="speedTo" class="w-1/2 p-2 border rounded"></select>
+                </div>
+                <button onclick="convertSpeed()"
+                    class="mt-3 w-full bg-orange-500 text-white p-2 rounded">Convert</button>
+                <p class="mt-2">Result: <span id="speedResult"></span></p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-2">Time Converter</h2>
+                <input type="number" id="timeInput" class="w-full p-2 border rounded" placeholder="Enter value">
+                <div class="flex gap-2 mt-2">
+                    <select id="timeFrom" class="w-1/2 p-2 border rounded"></select>
+                    <select id="timeTo" class="w-1/2 p-2 border rounded"></select>
+                </div>
+                <button onclick="convertTime()" class="mt-3 w-full bg-red-500 text-white p-2 rounded">Convert</button>
+                <p class="mt-2">Result: <span id="timeResult"></span></p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-2">Data Converter</h2>
+                <input type="number" id="dataInput" class="w-full p-2 border rounded" placeholder="Enter value">
+                <div class="flex gap-2 mt-2">
+                    <select id="dataFrom" class="w-1/2 p-2 border rounded"></select>
+                    <select id="dataTo" class="w-1/2 p-2 border rounded"></select>
+                </div>
+                <button onclick="convertData()" class="mt-3 w-full bg-teal-500 text-white p-2 rounded">Convert</button>
+                <p class="mt-2">Result: <span id="dataResult"></span></p>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <div class="mt-6 text-center">
+            <div class="bg-gray-300 w-full h-32 flex items-center justify-center">
+                <p>Ad Space</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-6 mt-10">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">Developed by <span class="font-semibold">Anit Shrestha</span></p>
+            <p>
+                <a href="https://anitcodes.github.io/portfolio2.0" target="_blank"
+                    class="text-blue-400 hover:underline">
+                    Visit My Portfolio
+                </a>
+            </p>
+            <p class="text-sm mt-2">&copy; <span id="year"></span> All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-update the year in the footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script src="converters.js"></script>
+    <script src="populateDropdowns.js"></script>
+</body>
+
+</html>
